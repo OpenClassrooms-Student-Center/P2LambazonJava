@@ -1,0 +1,63 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title th:text="#{cart.title}">Product</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+		
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css' />	
+	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css' />
+
+  </head>
+
+  <body>
+
+  <div th:replace="fragments :: navbar">Navigation bar fragment</div>
+
+  <div class="container">
+
+    <h1 th:text="#{cart.title}">Product</h1>
+
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Quantity</th>
+        <th>Item</th>
+        <th class="text-right">Price</th>
+        <th class="text-right">Subtotal</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="cartLine : ${cart.cartLineList}">
+
+        <td th:text="${cartLine.quantity}">Quantity</td>
+        <td th:text="${cartLine.product.name}">Name</td>
+        <td  class="text-right" th:text="${cartLine.product.price}">Price</td>
+        <td  class="text-right" th:text="${cartLine.subtotal}">Subtotal</td>
+
+      </tr>
+
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="3" class="text-right">Total:</td>
+        <td class="text-right" th:text="${cart.totalValue}" >Total</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="text-right">Average:</td>
+        <td class="text-right" th:text="${cart.averageValue}">Average </td>
+      </tr>
+      </tfoot>
+    </table>
+    <div class="text-center">
+      <a class="btn btn-primary" href="/products">Continue Shopping</a>
+      <a class="btn btn-primary" href="/order">Checkout</a>
+    </div>
+      <div th:replace="fragments :: footer">Footer</div>
+  </div>
+
+
+
+  </body>
+
+</html>

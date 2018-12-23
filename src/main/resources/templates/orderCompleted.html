@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title th:text="#{cart.title}">Cart</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css' />
+	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css' />
+
+  </head>
+
+  <body>
+
+  <div th:replace="fragments :: navbar">Navigation bar fragment</div>
+
+      <div class="container">
+      <h1 th:text="#{products.title}">Products</h1>
+          <div th:utext="#{completed.thanks}">Thanks you! It's over! </div>
+
+          <div th:replace="fragments :: footer">Footer</div>
+      </div>
+  </body>
+
+</html>

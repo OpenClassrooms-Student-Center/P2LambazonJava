@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title th:text="#{products.title}">Products</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css' />
+	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css' />
+
+  </head>
+
+  <body>
+
+    <div  th:fragment="navbar" class="navbar navbar-inverse bg-primary" role="navigation">
+        <div class="row">
+            <a class="col navbar-brand" style="padding-left:12%" href="/">OpenClassrooms shop</a>
+
+            <div class="col-4 text-right" style="padding-right:12%">
+                <div class="">
+                    <a class="btn btn-sm btn-secondary navbar-btn" href="/cart">
+                        Your cart
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div th:fragment="footer" th:utext="#{copyright}">Footer title </div>
+  </body>
+
+</html>

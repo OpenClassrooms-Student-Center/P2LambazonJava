@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title th:text="#{products.title}">Products</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css' />
+	<link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css' />
+
+  </head>
+
+  <body>
+
+  <div th:replace="fragments :: navbar">Navigation bar fragment</div>
+
+  <div class="container">
+  <h1 th:text="#{products.title}">Products</h1>
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th th:text="#{product}">Product</th>
+        <th th:text="#{description}">Description</th>
+        <th th:text="#{price}">Price</th>
+        <th th:text="#{stock}">Stock</th>
+        <th ></th>
+      </tr>
+      <tr th:each="prod : ${products}">
+
+          <td th:text="${prod.name}">Name</td>
+          <td th:text="${prod.description}">Description</td>
+          <td th:text="${prod.price}">Price</td>
+          <td th:text="${prod.stock}">Stock</td>
+          <td>
+              <form action="#" th:action="@{/cart/add}" method="post">
+                  <input id="productId" name="productId"  th:value="${prod.id}"  type="hidden"/>
+                  <input class="btn btn-primary" type="submit" value="Add to cart" />
+              </form>
+          </td>
+      </tr>
+    </table>
+      <div th:utext="#{copyright}">Footer title </div>
+</div>
+  </body>
+
+</html>
