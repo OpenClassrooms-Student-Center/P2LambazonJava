@@ -5,19 +5,27 @@ import com.openclassrooms.shop.domain.Product;
 import com.openclassrooms.shop.repository.OrderRepository;
 import com.openclassrooms.shop.repository.ProductRepository;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
 
 public class ProductServiceTest {
 
+    ProductRepository productRepository;
+    OrderRepository orderRepository ;
+    ProductService productService;
+
+    @Before
+    public void init() {
+        productRepository = new ProductRepository();
+        orderRepository = new OrderRepository();
+        productService = new ProductService(productRepository, orderRepository);
+    }
 
     @Test
     public void updateProductQuantities_3ProductsUpdates_quantitiesUpdated()
     {
-        ProductRepository productRepository = new ProductRepository();
-        OrderRepository orderRepository = new OrderRepository();
-        ProductService productService = new ProductService(productRepository, orderRepository);
 
         productService.updateProductQuantities(1L ,1);
         productService.updateProductQuantities(3L ,2);
@@ -33,9 +41,6 @@ public class ProductServiceTest {
     @Test
     public void getProductById_searchedForId3_productReturned()
     {
-        ProductRepository productRepository = new ProductRepository();
-        OrderRepository orderRepository = new OrderRepository();
-        ProductService productService = new ProductService(productRepository, orderRepository);
         Long id = 3L;
 
         Product product = productService.getProductById(id);
