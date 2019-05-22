@@ -11,7 +11,8 @@ public class Cart {
      * @return the actual cartline list
      */
     public List<CartLine> getCartLineList() {
-        return new ArrayList<>();
+        return null;
+        //TODO implement the method
     }
 
     /**
