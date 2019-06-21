@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -29,11 +30,11 @@ public class ProductService {
 	/**
 	 * @return all products from the inventory
 	 */
-	public Product[] getAllProducts() {
+	public List<Product> getAllProducts() {
 
 		// TODO change the return type from array to List<T> and propagate the change
 		// throughout the application
-		return productRepository.findAll();
+		return Arrays.asList(productRepository.findAll());
 	}
 
 	/**
