@@ -5,13 +5,14 @@ import java.util.List;
 import java.util.Optional;
 
 public class Cart {
-
+	
+	List<CartLine> cartLineList = new ArrayList<CartLine>();
     /**
      *
      * @return the actual cartline list
      */
     public List<CartLine> getCartLineList() {
-        return new ArrayList<>();
+        return cartLineList;
     }
 
     /**
@@ -38,7 +39,11 @@ public class Cart {
     public double getTotalValue()
     {
          //TODO implement the method
-        return 0.0;
+    	double total = 0;
+    	for(CartLine cartLine : cartLineList) {
+    		total += cartLine.getSubtotal();
+    	}
+    	return total;
 
     }
 
