@@ -63,7 +63,12 @@ public class Cart {
     public Product findProductInCartLines(Long productId)
     {
         // TODO implement the method
-        return null;
+    	for(CartLine cartLine : cartLineList) {
+    		if(cartLine.getProduct().getId().equals(productId)) {
+    			return cartLine.getProduct();
+    		}
+    	}
+    	return null;
     }
 
     /**
