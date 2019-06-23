@@ -22,6 +22,14 @@ public class Cart {
      */
     public void addItem(Product product, int quantity) {
         // TODO implement the method
+    	for(CartLine cartLine : cartLineList) {
+    		if(cartLine.getProduct().equals(product)) {
+    			cartLine.setQuantity(cartLine.getQuantity() + quantity);
+    			return;
+    		}    		 		
+    	}
+    	CartLine cartLine = new CartLine(product,quantity);
+    	cartLineList.add(cartLine);
     }
 
     /**
