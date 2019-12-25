@@ -1,14 +1,16 @@
 package com.openclassrooms.shop.domain;
 
 
-import com.openclassrooms.shop.repository.OrderRepository;
-import com.openclassrooms.shop.repository.ProductRepository;
-import com.openclassrooms.shop.service.ProductService;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
+import com.openclassrooms.shop.repository.OrderRepository;
+import com.openclassrooms.shop.repository.ProductRepository;
+import com.openclassrooms.shop.service.ProductService;
 
 
 /*
@@ -48,7 +50,7 @@ public class CartTest {
     @Test
     public void getAverageValue_twoDifferentProductsAdded_averageCalculated()
     {
-        List<Product> products = productService.getAllProducts();
+        List<Product> products = Arrays.asList(productService.getAllProducts());
         cart.addItem(products.stream().filter(p -> p.getId() == 2).findFirst().get(), 2);
         cart.addItem(products.stream().filter(p -> p.getId() == 5).findFirst().get(), 1);
         double averageValue = cart.getAverageValue();
@@ -60,7 +62,7 @@ public class CartTest {
     @Test
     public void getTotalValue_threeDifferentProductsAdded_totalCalculated()
     {
-        List<Product> products = productService.getAllProducts();
+        List<Product> products = Arrays.asList(productService.getAllProducts());
         cart.addItem(products.stream().filter(p -> p.getId() == 1).findFirst().get(), 1);
         cart.addItem(products.stream().filter(p -> p.getId() == 4).findFirst().get(), 3);
         cart.addItem(products.stream().filter(p -> p.getId() == 5).findFirst().get(), 1);
